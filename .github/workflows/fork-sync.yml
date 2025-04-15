@@ -1,0 +1,22 @@
+name: Sync Queens Fork
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch: # on button click
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: tgymnich/fork-sync@v1.8
+        with:
+          owner: samimsu
+          base: main
+          head: main
+          merge_method: merge
+          auto_approve: false
+          ignore_fail: true
+          token: ${{ secrets.FORK_SYNC_TOKEN }}
+          retries: 1
+          retry_after: 10
