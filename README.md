@@ -21,7 +21,7 @@
   <img src="https://github.com/user-attachments/assets/6fda1818-21f7-4d65-a288-75c9a4f30f65" width="50%" alt="queens game mockup">
 </div>
 
-## Levels Added (425/433)
+## Levels Added (426/434)
 
 - [x] 1-3
 - [ ] 4
@@ -33,7 +33,7 @@
 - [ ] 13-14
 - [x] 15-17
 - [ ] 18-20
-- [x] 21-433
+- [x] 21-434
 
 Note: If anyone could help in finding the missing levels, I'd really appreciate it.
 
@@ -114,6 +114,7 @@ https://github.com/user-attachments/assets/9a7be10f-87c2-4311-a7bf-f0103581f569
     </tr>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/lalmeida32"><img src="https://avatars.githubusercontent.com/u/41928177?v=4?s=100" width="100px;" alt="Lucas Almeida"/><br /><sub><b>Lucas Almeida</b></sub></a><br /><a href="#content-lalmeida32" title="Content">🖋</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://www.npmjs.com/~adityawk"><img src="https://avatars.githubusercontent.com/u/24765664?v=4?s=100" width="100px;" alt="Aditya Wikardiyan"/><br /><sub><b>Aditya Wikardiyan</b></sub></a><br /><a href="#code-aditAtSinTask" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
