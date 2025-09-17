@@ -21,7 +21,7 @@
   <img src="https://github.com/user-attachments/assets/6fda1818-21f7-4d65-a288-75c9a4f30f65" width="50%" alt="queens game mockup">
 </div>
 
-## Levels Added (496/504)
+## Levels Added (497/505)
 
 - [x] 1-3
 - [ ] 4
@@ -33,7 +33,7 @@
 - [ ] 13-14
 - [x] 15-17
 - [ ] 18-20
-- [x] 21-504
+- [x] 21-505
 
 Note: If anyone could help in finding the missing levels, I'd really appreciate it.
 
@@ -156,6 +156,7 @@ To build a community level make sure the "Community Level" level type is selecte
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/Futrion"><img src="https://avatars.githubusercontent.com/u/229791297?v=4?s=100" width="100px;" alt="Futrion"/><br /><sub><b>Futrion</b></sub></a><br /><a href="#content-Futrion" title="Content">🖋</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/FrostyPink"><img src="https://avatars.githubusercontent.com/u/229561800?v=4?s=100" width="100px;" alt="FrostyPink"/><br /><sub><b>FrostyPink</b></sub></a><br /><a href="#content-FrostyPink" title="Content">🖋</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/YohanRodriguezMDM"><img src="https://avatars.githubusercontent.com/u/71087699?v=4?s=100" width="100px;" alt="YohanRodriguezMDM"/><br /><sub><b>YohanRodriguezMDM</b></sub></a><br /><a href="#content-YohanRodriguezMDM" title="Content">🖋</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="http://matthewk.ing"><img src="https://avatars.githubusercontent.com/u/16358044?v=4?s=100" width="100px;" alt="Matthew King"/><br /><sub><b>Matthew King</b></sub></a><br /><a href="#code-thewmking" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
