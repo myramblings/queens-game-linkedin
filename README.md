@@ -21,7 +21,7 @@
   <img src="https://github.com/user-attachments/assets/6fda1818-21f7-4d65-a288-75c9a4f30f65" width="50%" alt="queens game mockup">
 </div>
 
-## Levels Added (507/515)
+## Levels Added (508/516)
 
 - [x] 1-3
 - [ ] 4
@@ -33,7 +33,7 @@
 - [ ] 13-14
 - [x] 15-17
 - [ ] 18-20
-- [x] 21-515
+- [x] 21-516
 
 Note: If anyone could help in finding the missing levels, I'd really appreciate it.
 
@@ -161,6 +161,7 @@ To build a community level make sure the "Community Level" level type is selecte
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/avieira99"><img src="https://avatars.githubusercontent.com/u/18429543?v=4?s=100" width="100px;" alt="avieira99"/><br /><sub><b>avieira99</b></sub></a><br /><a href="#content-avieira99" title="Content">🖋</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/NatalieAnselmi"><img src="https://avatars.githubusercontent.com/u/35673312?v=4?s=100" width="100px;" alt="Natalie"/><br /><sub><b>Natalie</b></sub></a><br /><a href="#content-NatalieAnselmi" title="Content">🖋</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/DimitarNestorov"><img src="https://avatars.githubusercontent.com/u/8790386?v=4?s=100" width="100px;" alt="Dimitar Nestorov"/><br /><sub><b>Dimitar Nestorov</b></sub></a><br /><a href="#code-DimitarNestorov" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
