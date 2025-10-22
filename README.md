@@ -21,7 +21,7 @@
   <img src="https://github.com/user-attachments/assets/6fda1818-21f7-4d65-a288-75c9a4f30f65" width="50%" alt="queens game mockup">
 </div>
 
-## Levels Added (531/539)
+## Levels Added (532/540)
 
 - [x] 1-3
 - [ ] 4
@@ -33,7 +33,7 @@
 - [ ] 13-14
 - [x] 15-17
 - [ ] 18-20
-- [x] 21-539
+- [x] 21-540
 
 Note: If anyone could help in finding the missing levels, I'd really appreciate it.
 
@@ -169,6 +169,7 @@ To build a community level make sure the "Community Level" level type is selecte
     </tr>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://exact.codes"><img src="https://avatars.githubusercontent.com/u/22865560?v=4?s=100" width="100px;" alt="Jatin"/><br /><sub><b>Jatin</b></sub></a><br /><a href="#content-heyJatin" title="Content">🖋</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/hiichbindermax"><img src="https://avatars.githubusercontent.com/u/23661067?v=4?s=100" width="100px;" alt="Maximilian Hell"/><br /><sub><b>Maximilian Hell</b></sub></a><br /><a href="#code-hiichbindermax" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
