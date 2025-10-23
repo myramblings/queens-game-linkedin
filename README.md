@@ -21,7 +21,7 @@
   <img src="https://github.com/user-attachments/assets/6fda1818-21f7-4d65-a288-75c9a4f30f65" width="50%" alt="queens game mockup">
 </div>
 
-## Levels Added (532/540)
+## Levels Added (533/541)
 
 - [x] 1-3
 - [ ] 4
@@ -33,13 +33,17 @@
 - [ ] 13-14
 - [x] 15-17
 - [ ] 18-20
-- [x] 21-540
+- [x] 21-541
 
 Note: If anyone could help in finding the missing levels, I'd really appreciate it.
 
 ## Build Levels
 
 If you would like to help me build LinkedIn's levels or build your own level you can use the [Level Builder](https://queensgame.vercel.app/level-builder). You can either paste the image of the level or manually build it.
+
+### LinkedIn levels
+
+Easiest way is to use the automated script to build the levels. Click [here](https://github.com/samimsu/queens-game-linkedin/blob/main/scripts/README.md) for more info.
 
 ### By pasting image
 
