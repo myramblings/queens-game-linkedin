@@ -67,7 +67,6 @@ const LevelBuilder = () => {
 
   const { t } = useTranslation();
 
-  const isLinkedInLevel = levelType === "linkedin";
   const isCommunityLevel = levelType === "community";
 
   const colorOptions = useMemo(
@@ -358,7 +357,7 @@ const LevelBuilder = () => {
   };
 
   const submitToGitHub = async () => {
-    const GITHUB_REPO = "samimsu/queens-game-linkedin";
+    const GITHUB_REPO = "samimsu/queens-game";
 
     try {
       setIsSubmitting(true);
@@ -444,10 +443,6 @@ const LevelBuilder = () => {
         />
 
         {isCommunityLevel && <Note />}
-
-        {isLinkedInLevel && (
-          <LevelNameInput levelName={levelName} setLevelName={setLevelName} />
-        )}
 
         {isCommunityLevel && (
           <>
@@ -575,18 +570,6 @@ const LevelBuilder = () => {
                 )}
               </div>
             </div>
-
-            {isLinkedInLevel && (
-              <SectionJSCode
-                jsCode={jsCode}
-                setJsCode={setJsCode}
-                copied={copied}
-                setCopied={setCopied}
-                levelName={levelName}
-                board={board}
-                regionColors={regionColors}
-              />
-            )}
           </div>
         </div>
 
