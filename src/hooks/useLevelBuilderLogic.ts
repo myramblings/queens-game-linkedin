@@ -5,17 +5,24 @@ import generateLevelJSCode from "@/utils/generateCode";
 import {
   altoMain,
   anakiwa,
+  atomicTangerine,
   bittersweet,
   celadon,
   chardonnay,
+  coldPurple,
   colorNames,
+  emerald,
   halfBaked,
   lavenderRose,
+  lightGreen,
   lightOrchid,
   lightWisteria,
+  macNCheese,
   nomad,
+  periwinkle,
   saharaSand,
   turquoiseBlue,
+  white,
 } from "@/utils/colors";
 import useImageGridProcessing from "@/hooks/useImageGridProcessing";
 
@@ -57,23 +64,30 @@ const useLevelBuilderLogic = () => {
 
   const colorOptions = useMemo(
     () => [
-      { name: t("COLOR.ALTO"), value: altoMain },
-      { name: t("COLOR.ANAKIWA"), value: anakiwa },
-      { name: t("COLOR.BITTERSWEET"), value: bittersweet },
-      { name: t("COLOR.CELADON"), value: celadon },
-      { name: t("COLOR.CHARDONNAY"), value: chardonnay },
-      { name: t("COLOR.HALF_BAKED"), value: halfBaked },
-      { name: t("COLOR.LAVENDER_ROSE"), value: lavenderRose },
-      { name: t("COLOR.LIGHT_ORCHID"), value: lightOrchid },
       { name: t("COLOR.LIGHT_WISTERIA"), value: lightWisteria },
-      { name: t("COLOR.NOMAD"), value: nomad },
+      { name: t("COLOR.CHARDONNAY"), value: chardonnay },
+      { name: t("COLOR.ANAKIWA"), value: anakiwa },
+      { name: t("COLOR.CELADON"), value: celadon },
+      { name: t("COLOR.ALTO"), value: altoMain },
+      { name: t("COLOR.BITTERSWEET"), value: bittersweet },
       { name: t("COLOR.SAHARA_SAND"), value: saharaSand },
+      { name: t("COLOR.NOMAD"), value: nomad },
+      { name: t("COLOR.LIGHT_ORCHID"), value: lightOrchid },
+      { name: t("COLOR.HALF_BAKED"), value: halfBaked },
       { name: t("COLOR.TURQUOISE_BLUE"), value: turquoiseBlue },
+      { name: "Atomic Tangerine", value: atomicTangerine },
+      { name: "Light Green", value: lightGreen },
+      { name: "Emerald", value: emerald },
+      { name: "Periwinkle", value: periwinkle },
+      { name: "Cold Purple", value: coldPurple },
+      { name: "Mac N Cheese", value: macNCheese },
+      { name: "White", value: white },
+      { name: t("COLOR.LAVENDER_ROSE"), value: lavenderRose },
     ],
     [],
   );
 
-  const regionKeys = "ABCDEFGHIJK".slice(0, boardSize);
+  const regionKeys = "ABCDEFGHIJKLMOPQR".slice(0, boardSize);
   const initialRegionColors = {
     A: lightWisteria,
     B: chardonnay,
@@ -86,6 +100,13 @@ const useLevelBuilderLogic = () => {
     I: lightOrchid,
     J: halfBaked,
     K: turquoiseBlue,
+    L: atomicTangerine,
+    M: lightGreen,
+    N: emerald,
+    O: periwinkle,
+    P: coldPurple,
+    Q: macNCheese,
+    R: white,
   } as const;
 
   const [regionColors, setRegionColors] = useState<

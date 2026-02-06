@@ -28,7 +28,7 @@ const DevBoardImporter = ({
         // - Remove trailing commas
         // - Wrap the entire string in square brackets
         const cleanedString = value
-          .replace(/[A-K]/g, '"$&"') // Add quotes around single letters A-G
+          .replace(/[A-R]/g, '"$&"') // Add quotes around single letters A-G
           .replace(/,\s*]/g, "]") // Remove trailing commas before closing brackets
           .trim() // Remove any leading/trailing whitespace
           .replace(/,\s*$/, ""); // Remove any trailing comma at the end
@@ -42,7 +42,7 @@ const DevBoardImporter = ({
         const newBoard = resultArray;
         const newSize = newBoard.length;
         setBoardSize(newSize);
-        const updatedRegionKeys = "ABCDEFGHIJKLM".slice(0, newSize);
+        const updatedRegionKeys = "ABCDEFGHIJKLMNOPQR".slice(0, newSize);
         setRegionColors(
           Object.fromEntries(
             updatedRegionKeys
