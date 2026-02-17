@@ -6,7 +6,7 @@ import i18n from "i18next";
 const languageToFlagCode: Record<string, string> = {
   en: "gb", // Inglés -> Gran Bretaña  //en= error404
   pt: "br", // Portugués -> Brasil     //pt= portugal
-  ar: "sa", // Árabe -> Arabia Saudita //ar= argentina
+  ar: "ps", // Árabe -> Arabia Saudita //ar= argentina
   zh: "cn", // Chino -> China
 };
 
