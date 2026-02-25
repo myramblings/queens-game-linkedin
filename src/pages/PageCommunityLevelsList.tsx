@@ -53,7 +53,7 @@ const LevelButton = ({
 };
 
 const Updates = () => {
-  const [isUpdatesOpen, setIsUpdatesOpen] = useState(true); // Control collapse
+  const [isUpdatesOpen, setIsUpdatesOpen] = useState(false);
 
   return (
     <div className="px-4 mt-8 mb-8">
@@ -117,16 +117,16 @@ const PageCommunityLevelsList = () => {
   const { t } = useTranslation();
 
   const [showUnique, setShowUnique] = useState(
-    getShowUniqueCommunityLevelsPreference
+    getShowUniqueCommunityLevelsPreference,
   );
   const [showMultiple, setShowMultiple] = useState(
-    getShowMultipleCommunityLevelsPreference
+    getShowMultipleCommunityLevelsPreference,
   );
   const [showCompleted, setShowCompleted] = useState(
-    getShowCompletedCommunityLevelsPreference
+    getShowCompletedCommunityLevelsPreference,
   );
   const [showNotCompleted, setShowNotCompleted] = useState(
-    getShowNotCompletedCommunityLevelsPreference
+    getShowNotCompletedCommunityLevelsPreference,
   );
 
   const filteredLevels = Object.keys(communityLevels).filter((key) => {
