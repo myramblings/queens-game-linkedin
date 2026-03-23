@@ -35,9 +35,9 @@ const level = {
     H: nomad,
     I: lightOrchid,
   },
-  solutionsCount: -1,
+  solutionsCount: 1,
   createdBy: "igRo",
-  creatorLink: "https://github.com/x",
+  creatorLink: "https://github.com/igRo",
 };
 
 export default level;
