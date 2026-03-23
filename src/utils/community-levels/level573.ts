@@ -26,7 +26,7 @@ const level = {
     E: altoMain,
     F: white,
   },
-  solutionsCount: -1,
+  solutionsCount: 1,
   createdBy: "isv11",
   creatorLink: "https://github.com/ismael-sierra",
 };
