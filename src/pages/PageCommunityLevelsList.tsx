@@ -70,9 +70,20 @@ const Updates = () => {
           <div className="p-4 space-y-4 text-sm text-blue-800">
             {/* NEWEST UPDATE */}
             <div className="border-l-4 border-blue-500 pl-3">
-              <p className="text-xs font-bold mb-1">JANUARY 16, 2026</p>
-              <p className="font-semibold text-blue-900">Palette Update #2</p>
+              <p className="text-xs font-bold mb-1">MARCH 30, 2026</p>
+              <p className="font-semibold text-blue-900">Queens crown</p>
               <p className="mt-1 opacity-90">
+                New Queens crown design implemented across the site
+              </p>
+            </div>
+
+            <div className="h-px bg-blue-200 w-full" />
+
+            {/* PREVIOUS UPDATES */}
+            <div className="pl-4 opacity-80">
+              <p className="text-xs font-bold mb-1">JANUARY 15, 2026</p>
+              <p className="font-semibold text-blue-900">Palette Update #2</p>
+              <p className="mt-1">
                 Following feedback on yesterday's visual update, we've refined
                 our color palette once more. This new set should provide
                 improved contrast and better readability.
@@ -80,8 +91,6 @@ const Updates = () => {
             </div>
 
             <div className="h-px bg-blue-200 w-full" />
-
-            {/* PREVIOUS UPDATES */}
             <div className="pl-4 opacity-80">
               <p className="text-xs font-bold mb-1">JANUARY 15, 2026</p>
               <p className="font-semibold text-blue-900">
