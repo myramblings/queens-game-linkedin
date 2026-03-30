@@ -1,7 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import Giscus from "@giscus/react";
-import { useTheme } from "next-themes";
 import { useTranslation } from "react-i18next";
 import {
   Shuffle,
@@ -22,11 +20,11 @@ import WinningScreen from "./components/WinningScreen";
 import Queen from "../Queen";
 import SettingsDialog from "./components/SettingsDialog";
 import Timer from "./components/Timer";
+import Comments from "@/components/Comments";
 import Button from "../Button";
 import useVisibility from "../../hooks/useVisibility";
 import useGameLogic from "@/hooks/useGameLogic";
 import { CommunityLevel as CommunityLevelType } from "@/utils/types";
-import { getGiscusLanguage } from "@/utils/getGiscusLanguage";
 import Tag from "../Tag";
 import { communityLevels } from "@/utils/communityLevels";
 import {
@@ -66,8 +64,7 @@ const CommunityLevel = ({
   previousLevel,
   nextLevel,
 }: CommunityLevelProps) => {
-  const { theme } = useTheme();
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const isVisible = useVisibility();
   const { globalPalette } = usePalette();
 
@@ -501,22 +498,7 @@ const CommunityLevel = ({
           </div>
         </div>
 
-        <div className="w-full px-2">
-          <Giscus
-            repo="samimsu/queens-game"
-            repoId="R_kgDONCfeAg"
-            category="Announcements"
-            categoryId="DIC_kwDONCfeAs4CnIas"
-            mapping="pathname"
-            strict="1"
-            reactionsEnabled="1"
-            emitMetadata="0"
-            inputPosition="bottom"
-            theme={theme}
-            lang={getGiscusLanguage(i18n.language) || i18n.language}
-            loading="lazy"
-          />
-        </div>
+        <Comments />
       </div>
     </div>
   );
