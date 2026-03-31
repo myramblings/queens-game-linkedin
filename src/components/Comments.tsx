@@ -23,6 +23,8 @@ export default function Comments() {
           "Comments are temporarily unavailable due to GitHub API rate limits.",
         );
         setShowSignInHint(true);
+      } else if (data.error?.includes("not found")) {
+        setError("");
       } else if (data.error) {
         setError("Failed to load comments. Please try again later.");
       }
