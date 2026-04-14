@@ -14,6 +14,7 @@ import useGameLogic from "@/hooks/useGameLogic";
 import { createEmptyBoard } from "@/utils/board";
 import Button from "@/components/Button";
 import { Button as Button2 } from "@/components/ui/button";
+import SettingsDialog from "@/components/CommunityLevel/components/SettingsDialog";
 import useVisibility from "@/hooks/useVisibility";
 
 interface TestLevelProps {
@@ -44,6 +45,7 @@ const TestLevel = ({ level }: TestLevelProps) => {
     clashingQueens,
     showClashingQueens,
     history,
+    autoPlaceXs,
     setBoard,
     setHasWon,
     setShowWinningScreen,
@@ -51,6 +53,8 @@ const TestLevel = ({ level }: TestLevelProps) => {
     handleSquareClick,
     handleDrag,
     handleUndo,
+    toggleClashingQueens,
+    toggleAutoPlaceXs,
   } = useGameLogic({
     boardSize,
     colorRegions,
@@ -59,7 +63,7 @@ const TestLevel = ({ level }: TestLevelProps) => {
   const handleGetSolutions = () => {
     setFetchingSolutions(true);
     const worker = new Worker(
-      new URL("@/workers/solveQueensWorker.ts", import.meta.url)
+      new URL("@/workers/solveQueensWorker.ts", import.meta.url),
     );
     workerRef.current = worker;
     worker.onmessage = (e) => {
@@ -146,6 +150,15 @@ const TestLevel = ({ level }: TestLevelProps) => {
             showClashingQueens={showClashingQueens}
             clashingQueens={clashingQueens}
           />
+
+          <div className="absolute right-0 bottom-full mb-2">
+            <SettingsDialog
+              showClashingQueens={showClashingQueens}
+              toggleShowClashingQueens={toggleClashingQueens}
+              autoPlaceXs={autoPlaceXs}
+              toggleAutoPlaceXs={toggleAutoPlaceXs}
+            />
+          </div>
         </div>
         <div className="flex flex-col space-y-3 items-center">
           <div className="flex items-center space-x-2">

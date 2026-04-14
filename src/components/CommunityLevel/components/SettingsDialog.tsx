@@ -12,19 +12,17 @@ import { Switch } from "@/components/ui/switch";
 interface SettingsDialogProps {
   showClashingQueens: boolean;
   toggleShowClashingQueens: (checked: boolean) => void;
-  showInstructions: boolean;
-  toggleShowInstructions: (checked: boolean) => void;
+  showInstructions?: boolean;
+  toggleShowInstructions?: (checked: boolean) => void;
   autoPlaceXs: boolean;
   toggleAutoPlaceXs: (checked: boolean) => void;
-  showClock: boolean;
-  toggleShowClock: (checked: boolean) => void;
+  showClock?: boolean;
+  toggleShowClock?: (checked: boolean) => void;
 }
 
 const SettingsDialog: React.FC<SettingsDialogProps> = ({
   showClashingQueens,
   toggleShowClashingQueens,
-  showInstructions,
-  toggleShowInstructions,
   autoPlaceXs,
   toggleAutoPlaceXs,
   showClock,
@@ -44,10 +42,12 @@ const SettingsDialog: React.FC<SettingsDialogProps> = ({
           <DialogTitle className="mb-2">{t("SETTINGS")}</DialogTitle>
         </DialogHeader>
         <div className="space-y-1 h-40">
-          <div className="flex items-center justify-between space-x-3">
-            <div>{t("SHOW_CLOCK")}</div>
-            <Switch checked={showClock} onCheckedChange={toggleShowClock} />
-          </div>
+          {toggleShowClock && (
+            <div className="flex items-center justify-between space-x-3">
+              <div>{t("SHOW_CLOCK")}</div>
+              <Switch checked={showClock} onCheckedChange={toggleShowClock} />
+            </div>
+          )}
           <div className="flex items-center justify-between space-x-3">
             <div>{t("AUTO_PLACE_XS")}</div>
             <Switch checked={autoPlaceXs} onCheckedChange={toggleAutoPlaceXs} />
