@@ -13,7 +13,7 @@ import {
 import { communityLevels } from "@/utils/communityLevels";
 import PageTitle from "@/components/PageTitle";
 import CommunityLevelsFilters from "@/components/CommunityLevelsList/CommunityLevelsFilters";
-import { ChevronDown, ChevronUp, Shuffle } from "lucide-react";
+import { Shuffle } from "lucide-react";
 import { CommunityLevel as CommunityLevelType } from "@/utils/types";
 
 interface LevelButtonProps {
@@ -49,76 +49,6 @@ const LevelButton = ({
         )}
       </button>
     </Link>
-  );
-};
-
-const Updates = () => {
-  const [isUpdatesOpen, setIsUpdatesOpen] = useState(false);
-
-  return (
-    <div className="px-4 mt-8 mb-8">
-      <div className="max-w-[600px] w-full sm:mx-auto border border-blue-200 rounded-lg overflow-hidden bg-blue-50">
-        <button
-          onClick={() => setIsUpdatesOpen(!isUpdatesOpen)}
-          className="w-full flex items-center justify-between p-3 text-blue-900 font-bold text-sm bg-blue-100 hover:bg-blue-200 transition-colors"
-        >
-          <span>LATEST SITE UPDATES</span>
-          {isUpdatesOpen ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
-        </button>
-
-        {isUpdatesOpen && (
-          <div className="p-4 space-y-4 text-sm text-blue-800">
-            {/* NEWEST UPDATE */}
-            <div className="border-l-4 border-blue-500 pl-3">
-              <p className="text-xs font-bold mb-1">MARCH 30, 2026</p>
-              <p className="font-semibold text-blue-900">Queens crown</p>
-              <p className="mt-1 opacity-90">
-                New Queens crown design implemented across the site
-              </p>
-            </div>
-
-            <div className="h-px bg-blue-200 w-full" />
-
-            {/* PREVIOUS UPDATES */}
-            <div className="pl-4 opacity-80">
-              <p className="text-xs font-bold mb-1">JANUARY 15, 2026</p>
-              <p className="font-semibold text-blue-900">Palette Update #2</p>
-              <p className="mt-1">
-                Following feedback on yesterday's visual update, we've refined
-                our color palette once more. This new set should provide
-                improved contrast and better readability.
-              </p>
-            </div>
-
-            <div className="h-px bg-blue-200 w-full" />
-            <div className="pl-4 opacity-80">
-              <p className="text-xs font-bold mb-1">JANUARY 15, 2026</p>
-              <p className="font-semibold text-blue-900">
-                Visual Identity Refresh
-              </p>
-              <p className="mt-1">
-                We have updated our color palette to provide a unique and
-                distinct visual experience, moving away from pastel tones to a
-                custom design.
-              </p>
-            </div>
-
-            <div className="h-px bg-blue-200 w-full" />
-
-            <div className="pl-4 opacity-80">
-              <p className="text-xs font-bold mb-1">JANUARY 7, 2026</p>
-              <p className="">
-                We have updated our level library to focus exclusively on
-                original, community-contributed content. As part of this
-                transition, previous archival levels have been removed. We are
-                committed to respecting intellectual property rights and
-                providing a unique platform for puzzle enthusiasts.
-              </p>
-            </div>
-          </div>
-        )}
-      </div>
-    </div>
   );
 };
 
@@ -166,52 +96,52 @@ const PageCommunityLevelsList = () => {
   return (
     <RootLayout>
       <PageTitle title={t("COMMUNITY_LEVELS")} />
-      <div className="px-4">
-        {/* COLLAPSIBLE UPDATES SECTION */}
-        <Updates />
-      </div>
-      <div className="text-gray-600 dark:text-gray-400 mb-2 px-1 sm:px-0 max-w-[348px] sm:max-w-[436px] text-sm w-full mx-auto">
-        {t("DISCOVER_AND_BUILD_COMMUNITY_LEVELS")}{" "}
-        <Link
-          to="/level-builder"
-          className="text-blue-600 font-semibold hover:underline"
-        >
-          {t("LEVEL_BUILDER")}
-        </Link>
-        .
-      </div>
-
-      {/* FILTERS */}
-      <CommunityLevelsFilters
-        showUnique={showUnique}
-        setShowUnique={setShowUnique}
-        showMultiple={showMultiple}
-        setShowMultiple={setShowMultiple}
-        showCompleted={showCompleted}
-        setShowCompleted={setShowCompleted}
-        showNotCompleted={showNotCompleted}
-        setShowNotCompleted={setShowNotCompleted}
-      />
-
-      <div className="grid grid-cols-8 sm:grid-cols-10 gap-1 p-1 text-sm w-fit mx-auto">
-        <div className="flex justify-end mb-1 col-span-8 sm:col-span-10">
-          <Link to={randomLevel?.path || ""}>
-            <button>
-              <Shuffle />
-            </button>
+      <div className="flex flex-col items-center">
+        <h1 className="text-4xl mb-6">{t("COMMUNITY_LEVELS")}</h1>
+        <div className="text-gray-600 dark:text-gray-400 mb-2 px-1 sm:px-0 max-w-[348px] sm:max-w-[436px] text-sm w-full mx-auto">
+          {t("DISCOVER_AND_BUILD_COMMUNITY_LEVELS")}{" "}
+          <Link
+            to="/level-builder"
+            className="text-blue-600 font-semibold hover:underline"
+          >
+            {t("LEVEL_BUILDER")}
           </Link>
+          .
         </div>
-        {filteredLevels.map((key) => {
-          const levelId = Number(key.replace("level", ""));
-          const hasMultipleSolutions = communityLevels[key].solutionsCount > 1;
-          return (
-            <LevelButton
-              key={levelId}
-              level={levelId}
-              hasMultipleSolutions={hasMultipleSolutions}
-            />
-          );
-        })}
+
+        {/* FILTERS */}
+        <CommunityLevelsFilters
+          showUnique={showUnique}
+          setShowUnique={setShowUnique}
+          showMultiple={showMultiple}
+          setShowMultiple={setShowMultiple}
+          showCompleted={showCompleted}
+          setShowCompleted={setShowCompleted}
+          showNotCompleted={showNotCompleted}
+          setShowNotCompleted={setShowNotCompleted}
+        />
+
+        <div className="grid grid-cols-8 sm:grid-cols-10 gap-1 p-1 text-sm w-fit mx-auto">
+          <div className="flex justify-end mb-1 col-span-8 sm:col-span-10">
+            <Link to={randomLevel?.path || ""}>
+              <button>
+                <Shuffle />
+              </button>
+            </Link>
+          </div>
+          {filteredLevels.map((key) => {
+            const levelId = Number(key.replace("level", ""));
+            const hasMultipleSolutions =
+              communityLevels[key].solutionsCount > 1;
+            return (
+              <LevelButton
+                key={levelId}
+                level={levelId}
+                hasMultipleSolutions={hasMultipleSolutions}
+              />
+            );
+          })}
+        </div>
       </div>
     </RootLayout>
   );
