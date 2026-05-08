@@ -1,27 +1,35 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { Menu, Palette, X } from "lucide-react";
-import Queen from "@/components/Queen";
-import DiscordButton from "./LevelSelection/components/DiscordButton";
-import LanguageDropdown from "./LevelSelection/components/LanguageDropdown";
-import NewBadge from "./NewBadge";
+import { Menu, X, Moon, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
 import { useTranslation } from "react-i18next";
+import Queen from "@/components/Queen";
+import LanguageDropdown from "./LevelSelection/components/LanguageDropdown";
+import { trackEvent, ANALYTICS_EVENTS } from "@/utils/analytics";
 import {
   getCommunityLevelsClicked,
   setCommunityLevelsClicked,
 } from "@/utils/localStorage";
-import PatreonButton from "./PatreonButton";
+import {
+  SidebarDrawer,
+  SidebarDrawerTrigger,
+  SidebarDrawerPortal,
+  SidebarDrawerContent,
+  SidebarDrawerCloseButton,
+} from "@/components/ui/sidebar";
 
 const NAV_LINKS = [
-  { to: "/", labelKey: "HOME" },
-  { to: "/level-builder", labelKey: "LEVEL_BUILDER" },
+  { to: "/", labelKey: "HOME", isNew: false },
+  { to: "/level-builder", labelKey: "LEVEL_BUILDER", isNew: false },
+  { to: "/settings/palette", labelKey: "Custom Palette", isNew: false },
+  { to: "/updates", labelKey: "UPDATES", isNew: false, type: "secondary" },
 ];
 
 const Navbar = () => {
   const { t } = useTranslation();
+  const { theme, setTheme } = useTheme();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   const communityLevelsClicked = getCommunityLevelsClicked();
 
   const handleCommunityLevelsClick = () => {
@@ -30,117 +38,115 @@ const Navbar = () => {
     }
   };
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+  const handleThemeChange = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    trackEvent(ANALYTICS_EVENTS.SELECT_CONTENT, {
+      content_type: "theme",
+      item_id: newTheme,
+    });
   };
 
   return (
     <nav className="relative rounded-2xl p-4 w-full">
       <div className="max-w-7xl flex justify-between items-center w-full mx-auto">
         <div className="flex items-center space-x-4">
-          <div className="flex items-center space-x-3 font-medium">
-            <Link to="/" className="flex items-center space-x-2">
-              <Queen className="dark:fill-yellow-400" />
-              <h1 className="text-xl sm:text-2xl">Queens</h1>
-            </Link>
-          </div>
-          {/* Navigation Links - Desktop */}
-          <ul className="space-x-2 hidden lg:flex">
-            {NAV_LINKS.map((link) => (
-              <li key={link.to} className="relative">
-                <NavLink
-                  to={link.to}
-                  className={({ isActive }) =>
-                    isActive ? "bg-primary text-white p-2 rounded" : "p-2"
-                  }
-                  onClick={() => {
-                    if (link.labelKey === "COMMUNITY_LEVELS") {
-                      handleCommunityLevelsClick();
-                    }
-                  }}
-                >
-                  {t(link.labelKey)}
-                </NavLink>
-                {link.isNew && (
-                  <NewBadge className="absolute -top-3 -right-4 z-10" />
-                )}
-              </li>
-            ))}
-          </ul>
+          <SidebarDrawer open={isMenuOpen} onOpenChange={setIsMenuOpen}>
+            <SidebarDrawerTrigger asChild>
+              <button
+                className="lg:hidden flex"
+                aria-label="Open navigation menu"
+                type="button"
+              >
+                <span className="relative inline-flex">
+                  {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                </span>
+              </button>
+            </SidebarDrawerTrigger>
+
+            <SidebarDrawerPortal>
+              <SidebarDrawerContent className="lg:hidden">
+                <div className="flex items-center justify-between mb-6">
+                  <Link to="/" className="flex items-center space-x-2">
+                    <Queen className="dark:fill-yellow-400" />
+                    <h1 className="text-xl sm:text-2xl">Queens</h1>
+                  </Link>
+                  <SidebarDrawerCloseButton asChild>
+                    <button type="button" aria-label="Close navigation menu">
+                      <X size={24} />
+                    </button>
+                  </SidebarDrawerCloseButton>
+                </div>
+
+                <ul className="space-y-2">
+                  {NAV_LINKS.filter((link) => link.type !== "secondary").map(
+                    (link) => (
+                      <li key={link.to} className="relative">
+                        <NavLink
+                          to={link.to}
+                          className={({ isActive }) =>
+                            isActive
+                              ? "bg-primary text-white p-2 rounded w-full flex"
+                              : "w-full flex p-2 rounded hover:bg-primary/10"
+                          }
+                          onClick={() => {
+                            setIsMenuOpen(false);
+                            if (link.labelKey === "COMMUNITY_LEVELS") {
+                              handleCommunityLevelsClick();
+                            }
+                          }}
+                        >
+                          {t(link.labelKey)}
+                        </NavLink>
+                      </li>
+                    ),
+                  )}
+                </ul>
+
+                <hr className="my-2 w-full border-t border-primary/25" />
+
+                <ul className="flex flex-col w-full gap-2">
+                  {NAV_LINKS.filter((link) => link.type === "secondary").map(
+                    (link) => (
+                      <li key={link.to} className="relative">
+                        <NavLink
+                          to={link.to}
+                          className={({ isActive }) =>
+                            isActive
+                              ? "bg-primary text-white p-2 rounded w-full flex"
+                              : "w-full flex p-2 rounded hover:bg-primary/10"
+                          }
+                          onClick={() => {
+                            setIsMenuOpen(false);
+                            if (link.labelKey === "COMMUNITY_LEVELS") {
+                              handleCommunityLevelsClick();
+                            }
+                          }}
+                        >
+                          {t(link.labelKey)}
+                        </NavLink>
+                      </li>
+                    ),
+                  )}
+                </ul>
+
+                <div className="mt-auto flex flex-col gap-2">
+                  <button
+                    onClick={handleThemeChange}
+                    className="w-fit flex items-center p-2 rounded-md transition-colors hover:bg-primary/25"
+                  >
+                    {theme === "light" ? <Sun size={18} /> : <Moon size={18} />}
+                  </button>
+                </div>
+              </SidebarDrawerContent>
+            </SidebarDrawerPortal>
+          </SidebarDrawer>
         </div>
 
         <div className="flex items-center space-x-2 sm:space-x-6">
-          <NavLink
-            to="/settings/palette"
-            className={({ isActive }) =>
-              isActive
-                ? "bg-primary text-white p-2 rounded items-center space-x-2 hidden lg:flex"
-                : "p-2 items-center space-x-2 hidden lg:flex"
-            }
-          >
-            <Palette size={20} />
-            <span>Custom Palette</span>
-          </NavLink>
-
           <LanguageDropdown />
-          <div className="flex items-center space-x-4 sm:space-x-5">
-            <DiscordButton />
-            <PatreonButton />
-            <span className="relative inline-flex">
-              <button className="lg:hidden" onClick={toggleMenu}>
-                {!communityLevelsClicked && (
-                  <span className="absolute top-0 right-0 -mt-1 -mr-1 flex size-3">
-                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75"></span>
-                    <span className="relative inline-flex size-3 rounded-full bg-primary"></span>
-                  </span>
-                )}
-                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-              </button>
-            </span>
-          </div>
         </div>
       </div>
-
-      {isMenuOpen && (
-        <div className="absolute top-full left-0 right-0 bg-background shadow-lg rounded-b-lg p-4 z-50 lg:hidden">
-          <ul className="space-y-2">
-            {NAV_LINKS.map((link) => (
-              <li key={link.to} className="relative">
-                <NavLink
-                  to={link.to}
-                  className={({ isActive }) =>
-                    isActive
-                      ? "bg-primary text-white p-2 rounded w-full flex"
-                      : "w-full flex p-2"
-                  }
-                  onClick={() => {
-                    toggleMenu();
-                    if (link.labelKey === "COMMUNITY_LEVELS") {
-                      handleCommunityLevelsClick();
-                    }
-                  }}
-                >
-                  {t(link.labelKey)}
-                </NavLink>
-                {link.isNew && (
-                  <NewBadge className="absolute top-1/2 -translate-y-1/2 right-4 z-10" />
-                )}
-              </li>
-            ))}
-          </ul>
-          <NavLink
-            to="/settings/palette"
-            className={({ isActive }) =>
-              isActive
-                ? "bg-primary text-white p-2 rounded items-center space-x-2 flex lg:hidden"
-                : "p-2 items-center space-x-2 flex lg:hidden"
-            }
-          >
-            <span>Custom Palette</span>
-            <Palette size={20} />
-          </NavLink>
-        </div>
-      )}
     </nav>
   );
 };

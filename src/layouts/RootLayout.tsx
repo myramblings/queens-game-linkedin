@@ -1,6 +1,7 @@
 import Footer from "../components/Footer";
 import { Analytics } from "@vercel/analytics/react";
 import Navbar from "@/components/Navbar";
+import Sidebar from "@/components/Sidebar";
 
 interface RootLayoutProps {
   children: React.ReactNode;
@@ -12,8 +13,13 @@ const RootLayout = ({ children, className = "" }: RootLayoutProps) => {
     <div
       className={`flex flex-col h-full overflow-clip pb-4 min-h-screen ${className}`}
     >
-      <Navbar />
-      <div className="flex-1 min-h-[300px] mb-3 pb-16 mx-auto">{children}</div>
+      <div className="flex">
+        <Sidebar />
+        <div className="flex-1 min-h-[300px] mb-3 pb-16 mx-auto lg:pl-44">
+          <Navbar />
+          {children}
+        </div>
+      </div>
       <Footer />
       <Analytics />
     </div>

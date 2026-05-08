@@ -8,7 +8,7 @@ import PageCommunityLevel from "./pages/PageCommunityLevel";
 import PageLevelBuilder from "./pages/PageLevelBuilder";
 import PagePaletteSettings from "./pages/PagePaletteSettings";
 import PageNotFound from "./pages/PageNotFound";
-import ThemeSwitcher from "./components/ThemeSwitcher";
+import PageUpdates from "./pages/PageUpdates";
 import "./App.css";
 import "./i18n";
 
@@ -33,10 +33,10 @@ const App = () => {
                 path="/settings/palette"
                 element={<PagePaletteSettings />}
               />
+              <Route path="/updates" element={<PageUpdates />} />
               <Route path="*" element={<PageNotFound />} />
             </Routes>
           </Router>
-          <ThemeSwitcher />
         </PaletteProvider>
       </ThemeProvider>
     </HelmetProvider>
