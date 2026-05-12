@@ -5,6 +5,7 @@ import { trackEvent, ANALYTICS_EVENTS } from "@/utils/analytics";
 import DiscordButton from "./LevelSelection/components/DiscordButton";
 import PatreonButton from "./PatreonButton";
 import GithubButton from "./GithubButton";
+import WallOfTextButton from "./WallOfTextButton";
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -17,6 +18,7 @@ const Footer = () => {
             <PatreonButton />
             <DiscordButton />
             <GithubButton />
+            <WallOfTextButton />
             <GithubStarButton />
           </div>
         </div>
